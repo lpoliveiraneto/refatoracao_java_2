@@ -16,13 +16,11 @@ public class Livros implements Iterable<Livro> {
 				.collect(Collectors.toList());
 	}
 	
-	public Money getSubtotal() {		
-		Money subTotal = Money.of(0, Livraria.reais);
-		for(Livro livro : lista) {
-			Money valorDoLivro = livro.getValor();
-			subTotal = subTotal.add(valorDoLivro);
-		}
-		return subTotal;
+	public Money getSubtotal() {
+		return lista
+				.stream()
+				.map(Livro::getValor)
+				.reduce(Money.of(0, Livraria.reais), Money::add);
 	}
 
 	@Override
