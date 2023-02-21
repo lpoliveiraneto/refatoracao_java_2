@@ -13,6 +13,6 @@ public class FormatadorUtilsTest {
 	public void formatarUmValorMonetario() {
 		Money dinheiro = Money.of(100, Livraria.reais);
 		
-		assertThat(FormatadorUtils.getValorFormatado(dinheiro), is(equalTo("R$ 100,00")));
+		assertThat(FormatadorUtils.getValorFormatado(dinheiro), is(equalTo("R$ 100,00")));
 	}
 }

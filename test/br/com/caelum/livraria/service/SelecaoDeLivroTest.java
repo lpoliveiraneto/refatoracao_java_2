@@ -41,7 +41,7 @@ public class SelecaoDeLivroTest {
 	
 	@Test
 	public void criarUmCarrinhoDeComprasComUmLivro() {
-		CarrinhoDeCompras carrinho = servico.adicionarLivroNoCarrinhoDoCliente(umIsbnValido, UM_CLIENTE, CEP);
+		CarrinhoDeCompras carrinho = servico.adicionarLivroNoCarrinhoDoCliente(umIsbnValido, UM_CLIENTE);
 		
 		assertThat(carrinho.doCliente(UM_CLIENTE), is(true));
 		assertThat(carrinho, contains(UM_LIVRO));
@@ -51,8 +51,8 @@ public class SelecaoDeLivroTest {
 	public void adicionarLivroEmCarrinhoDeComprasExistente() {
 		when(todosLivros.por(outroIsbnValido)).thenReturn(OUTRO_LIVRO);
 		
-		servico.adicionarLivroNoCarrinhoDoCliente(umIsbnValido, UM_CLIENTE, CEP);
-		CarrinhoDeCompras carrinho = servico.adicionarLivroNoCarrinhoDoCliente(outroIsbnValido, UM_CLIENTE, CEP);
+		servico.adicionarLivroNoCarrinhoDoCliente(umIsbnValido, UM_CLIENTE);
+		CarrinhoDeCompras carrinho = servico.adicionarLivroNoCarrinhoDoCliente(outroIsbnValido, UM_CLIENTE);
 		
 		assertThat(carrinho.doCliente(UM_CLIENTE), is(true));
 		assertThat(carrinho, hasItems(UM_LIVRO, OUTRO_LIVRO));

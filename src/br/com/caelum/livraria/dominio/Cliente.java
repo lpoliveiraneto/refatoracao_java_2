@@ -3,11 +3,17 @@ package br.com.caelum.livraria.dominio;
 public class Cliente {
 
 	private final String id;
-	private final Telefone telefone;
-	
-	public Cliente(String id, Telefone telefone) {
+	private String cep;
+
+	private String ddd;
+	private String numero;
+
+
+	public Cliente(String id, String cep, String ddd, String numero) {
 		this.id = id;
-		this.telefone = telefone;
+		this.cep = cep;
+		this.ddd = ddd;
+		this.numero = numero;
 	}
 
 	@Override
@@ -25,7 +31,20 @@ public class Cliente {
 		return id.hashCode();
 	}
 
+	public String getTelefoneFormatado() {
+		return String.format("(%s) %s", ddd, numero);
+	}
+
 	public String getTelefone() {
-		return telefone.toString();
+		return getTelefoneFormatado();
+	}
+
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 }
