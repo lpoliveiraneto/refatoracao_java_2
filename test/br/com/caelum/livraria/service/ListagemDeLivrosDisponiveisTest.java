@@ -12,15 +12,19 @@ import org.junit.Test;
 
 import br.com.caelum.livraria.dominio.Livros;
 import br.com.caelum.livraria.dominio.TodosLivros;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class ListagemDeLivrosDisponiveisTest {
 	
 	private ListagemDeLivrosDisponiveis servico;
+	@Mock
 	private TodosLivros todosLivros;
 	
 	@Before
 	public void setUp() {
-		this.todosLivros = mock(TodosLivros.class);
+	//	this.todosLivros = mock(TodosLivros.class);
+		MockitoAnnotations.initMocks(this);
 		this.servico = new ListagemDeLivrosDisponiveis(todosLivros);
 	}
 	

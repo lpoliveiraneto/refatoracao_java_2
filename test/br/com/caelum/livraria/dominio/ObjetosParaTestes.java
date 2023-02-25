@@ -11,5 +11,5 @@ public class ObjetosParaTestes {
 	public static final String ID_CLIENTE = "idCliente";
 	public static final Cliente UM_CLIENTE = new Cliente("idCliente", CEP, ddd, numeroTelefone);
 	public static final Cliente OUTRO_CLIENTE = new Cliente("outroIdCliente", CEP, ddd, numeroTelefone);
-	public static final String umAutor = "Rodrigo vieira";
+	public static final Autor umAutor = new Autor("Rodrigo vieira");
 }

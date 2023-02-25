@@ -21,7 +21,7 @@ public class CarrinhoDeComprasFactory {
             carrinho = carrinhos.stream()
                     .filter(umCarrinho -> umCarrinho.doCliente(cliente))
                     .findFirst().orElse(null);
-            if(carrinho != null)carrinho.getLivros().adicionar(livro);
+            if(carrinho != null)carrinho.adicionar(livro);
         }
         else carrinhos.add(carrinho);
         return carrinho;

@@ -39,8 +39,12 @@ public class CarrinhoDeCompras implements Iterable<Livro> {
 	
 	private LocalDate calcularDiaDeEntrega(int diasParaEntrega) {
 		LocalDate dataCalculada = dataDaCompra.plusDays(diasParaEntrega);
-		if(asList(SATURDAY, SUNDAY).contains(dataCalculada.getDayOfWeek())) return calcularDiaDeEntrega(diasParaEntrega + 1);
+		if(eFimDeSemana(dataCalculada)) return calcularDiaDeEntrega(diasParaEntrega + 1);
 		return dataCalculada;
+	}
+
+	private boolean eFimDeSemana(LocalDate data){
+		return asList(SATURDAY, SUNDAY).contains(data.getDayOfWeek());
 	}
 
 	public void incluirDesconto(Desconto desconto) {
@@ -71,7 +75,7 @@ public class CarrinhoDeCompras implements Iterable<Livro> {
 		return livros.iterator();
 	}
 
-	public Livros getLivros() {
-		return livros;
+	public void adicionar(Livro livro){
+		livros.adicionar(livro);
 	}
 }
